@@ -1,0 +1,2 @@
+import { Link } from "react-router-dom"; import { ArrowLeft } from "lucide-react"; import SiteLayout from "../components/SiteLayout.jsx";
+export default function NotFoundPage(){return <SiteLayout><main className="empty-state not-found"><div className="empty-state__icon">404</div><h1>Bu sayfa bulunamadı</h1><p>Bağlantıyı kontrol et veya ana sayfaya dön.</p><Link to="/home" className="primary-button primary-button--link"><ArrowLeft size={17}/> Ana sayfaya dön</Link></main></SiteLayout>}
