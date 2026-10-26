@@ -1,0 +1,22 @@
+# Gizli bilgiler
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node.js / React
+node_modules/
+dist/
+
+# Editör ve işletim sistemi
+.vscode/
+.idea/
+.DS_Store
