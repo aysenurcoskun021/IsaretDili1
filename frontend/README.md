@@ -282,3 +282,20 @@ Yeni bir özellik eklenirken mevcut klasör yapısına uyulmalı, ortak davranı
 **Proje:** SignBridge  
 **Arayüz dili:** Türkçe  
 **Durum:** Frontend prototipi / entegrasyona hazırlık
+
+## Çeviri sayfaları ve sözlük video penceresi
+
+Güncel frontend sürümünde iki ayrı çeviri ekranı bulunmaktadır:
+
+- `/metinden-isarete`: Backend'deki `POST /translate/text-to-sign` endpoint'ini kullanır. Backend'in döndürdüğü kelimeler için `GET /videos/{word}` çağrıları yapılarak veritabanında bulunan işaret videoları gösterilir. Mevcut backend metni kelimelere ayırmaktadır; doğal dil işleme/TİD gramer dönüşümü henüz bu endpoint'te uygulanmamaktadır.
+- `/isaretten-metne`: Tarayıcı kamera izniyle canlı kamera önizlemesini açar. Güncel backend kaynak kodunda işaretten metne yapay zekâ tahmin endpoint'i bulunmadığı için sahte sonuç üretilmez. Model endpoint'i hazır olduğunda bu sayfa gerçek tahmin servisine bağlanmalıdır.
+
+Sözlükte `Video İzle` seçildiğinde yeni route açılmaz. `SignVideoModal` bileşeni sözlük sayfasının üzerinde erişilebilir bir dialog olarak açılır. Modal ESC tuşu, kapatma butonu veya arka alana tıklama ile kapatılabilir. Video URL'si mevcut `/videos/{word}` servisi üzerinden alınır.
+
+### API adresi
+
+Frontend API adresi `VITE_API_BASE_URL` environment variable üzerinden değiştirilebilir. Tanımlanmazsa geliştirme ortamında `http://127.0.0.1:8000` kullanılır.
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```

@@ -1,4 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log("BACKEND ADRESİ:", API_BASE_URL);
 async function request(path, payload) {
   const response = await fetch(`${API_BASE_URL.replace(/\/$/, "")}${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
   const data = await response.json().catch(() => ({}));

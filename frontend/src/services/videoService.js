@@ -1,8 +1,8 @@
-const API_URL = "http://127.0.0.1:8000";
+import { API_BASE_URL } from "./apiConfig.js";
 
 export async function getSignVideo(word) {
   const response = await fetch(
-    `${API_URL}/videos/${encodeURIComponent(word)}`
+    `${API_BASE_URL}/videos/${encodeURIComponent(word)}`
   );
 
   if (!response.ok) {
@@ -13,5 +13,5 @@ export async function getSignVideo(word) {
     );
   }
 
-  return await response.json();
+  return response.json();
 }
